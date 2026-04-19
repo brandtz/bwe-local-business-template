@@ -1,0 +1,81 @@
+<script setup lang="ts">
+import { useSiteConfig } from '~/composables/useSiteConfig'
+
+interface Props {
+  headline: string
+  subheadline?: string
+  eyebrow?: string
+  trustItems?: string[]
+  variant?: 'full' | 'medium'
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  variant: 'medium',
+})
+
+const config = useSiteConfig()
+
+const heightClass = computed(() =>
+  props.variant === 'full'
+    ? 'min-h-[92vh] md:min-h-screen'
+    : 'min-h-[48vh] md:min-h-[60vh]',
+)
+</script>
+
+<template>
+  <section
+    class="bg-brand-dark text-white relative overflow-hidden"
+    :class="heightClass"
+  >
+    <div
+      class="max-w-container mx-auto px-6 md:px-10 py-20 md:py-24 flex flex-col justify-center items-center md:items-start text-center md:text-left"
+      :class="variant === 'full' ? 'md:py-28' : ''"
+    >
+      <NuxtImg
+        :src="config.logo"
+        :alt="`${config.businessName} logo`"
+        class="h-14 md:h-16 w-auto mb-8"
+        loading="eager"
+        sizes="sm:120px md:160px"
+      />
+
+      <p
+        v-if="eyebrow"
+        class="text-xs md:text-sm uppercase tracking-[0.18em] text-brand-teal font-medium mb-4"
+      >
+        {{ eyebrow }}
+      </p>
+
+      <h1
+        class="text-4xl md:text-display font-semibold leading-tight max-w-3xl"
+      >
+        {{ headline }}
+      </h1>
+
+      <p
+        v-if="subheadline"
+        class="mt-5 text-lg md:text-subhead text-brand-slate max-w-2xl"
+      >
+        {{ subheadline }}
+      </p>
+
+      <div v-if="$slots.default" class="mt-8 flex flex-wrap gap-3 justify-center md:justify-start">
+        <slot />
+      </div>
+
+      <ul
+        v-if="trustItems && trustItems.length"
+        class="mt-10 flex flex-wrap gap-x-6 gap-y-2 justify-center md:justify-start text-sm text-brand-slate"
+      >
+        <li
+          v-for="item in trustItems"
+          :key="item"
+          class="inline-flex items-center gap-2"
+        >
+          <span class="w-2 h-2 rounded-full bg-brand-teal" aria-hidden="true"></span>
+          {{ item }}
+        </li>
+      </ul>
+    </div>
+  </section>
+</template>

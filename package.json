@@ -1,0 +1,38 @@
+{
+  "name": "bwe-local-business-template",
+  "version": "0.1.0",
+  "private": true,
+  "description": "BWE Local Business Website Template — reusable Nuxt 3 + Sanity + Netlify scaffold for small local businesses.",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "typecheck": "nuxt typecheck",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@nuxt/image": "^1.8.1",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/sanity": "^1.13.3",
+    "@nuxtjs/tailwindcss": "^6.12.2",
+    "@vee-validate/nuxt": "^4.13.2",
+    "@vee-validate/zod": "^4.13.2",
+    "img-comparison-slider": "^8.0.6",
+    "lucide-vue-next": "^0.453.0",
+    "nuxt": "^3.13.2",
+    "resend": "^4.0.0",
+    "vee-validate": "^4.13.2",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "packageManager": "pnpm@9.12.2",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -1,0 +1,17 @@
+# BWE Local Business Website Template — Netlify build config
+# Per-client overrides: set CLIENT env var in Netlify UI (Site Settings → Environment variables).
+# Required env vars: CLIENT. Optional: SANITY_PROJECT_ID, SANITY_DATASET, CAL_COM_BASE_URL, RESEND_API_KEY.
+
+[build]
+  command = "pnpm install --no-frozen-lockfile && pnpm run build"
+  publish = ".output/public"
+
+[build.environment]
+  NODE_VERSION = "20"
+  PNPM_VERSION = "9.12.2"
+  NPM_FLAGS = "--version"
+
+# Nitro Netlify preset wires functions automatically from .output/server
+[functions]
+  directory = ".output/server"
+  node_bundler = "esbuild"

@@ -37,6 +37,12 @@ export interface ClientSiteConfig {
   // Public-asset paths (served from /clients/<slug>/public via nitro.publicAssets)
   logo: string
 
+  // Feature flags
+  // When false, the home before/after showcase renders static after-photos
+  // instead of the img-comparison-slider. Flip to true once we have strong
+  // before/after pairs from the client.
+  showBeforeAfterSliders: boolean
+
   // Misc
   socials?: {
     facebook?: string
@@ -74,7 +80,10 @@ export const siteConfig: ClientSiteConfig = {
     light: '#F4F6F8',
   },
 
-  logo: '/brand/logo.png',
+  logo: '/brand/logo.jpg',
+
+  // Flip to true once we have strong before/after pairs from Ryan.
+  showBeforeAfterSliders: false,
 
   socials: {
     // TODO: confirm with Ryan — using Google Business Profile as placeholder

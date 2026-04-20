@@ -18,6 +18,18 @@ const pressureGallery = pressureWash?.gallery[0]
 const gutterGallery = gutterClean?.gallery[0]
 const roofingGallery = roofing?.gallery[0]
 
+// When the client hasn't supplied strong before/after pairs yet, render the
+// showcase cards as static after-photos. Flip config.showBeforeAfterSliders
+// to true once better photos are available to re-enable the slider/three-panel
+// experience.
+const showcaseEnabled = config.showBeforeAfterSliders
+const pressureMode = showcaseEnabled ? 'slider' : 'static'
+const gutterMode = showcaseEnabled ? 'slider' : 'static'
+const roofingMode = showcaseEnabled ? 'three-panel' : 'static'
+const showcaseSubhead = showcaseEnabled
+  ? 'Real jobs. Real homeowners. Drag the sliders to see the difference.'
+  : 'Real jobs. Real homeowners across Springfield and Eugene.'
+
 useSeoMeta({
   title: `${config.businessName} | ${config.city}, ${config.region} Roofing & Gutters`,
   description: `${config.businessName} — roofing, gutters, and pressure washing across ${config.serviceArea}. ${config.licenseFooterText}. ${config.licenseNumber}.`,
@@ -87,22 +99,22 @@ useHead({
             The work speaks for itself
           </h2>
           <p class="mt-3 text-brand-slate max-w-xl">
-            Real jobs. Real homeowners. Drag the sliders to see the difference.
+            {{ showcaseSubhead }}
           </p>
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <SectionBeforeAfter
-            v-if="pressureGallery?.before && pressureGallery?.after"
-            mode="slider"
+            v-if="pressureGallery?.after && (!showcaseEnabled || pressureGallery?.before)"
+            :mode="pressureMode"
             label="Pressure washing"
             :before="pressureGallery.before"
             :after="pressureGallery.after"
             :caption="pressureGallery.caption"
           />
           <SectionBeforeAfter
-            v-if="gutterGallery?.before && gutterGallery?.after"
-            mode="slider"
+            v-if="gutterGallery?.after && (!showcaseEnabled || gutterGallery?.before)"
+            :mode="gutterMode"
             label="Gutter cleaning"
             :before="gutterGallery.before"
             :after="gutterGallery.after"
@@ -110,7 +122,7 @@ useHead({
           />
           <SectionBeforeAfter
             v-if="roofingGallery?.after"
-            mode="three-panel"
+            :mode="roofingMode"
             label="Roofing"
             :before="roofingGallery.before"
             :during="roofingGallery.during"

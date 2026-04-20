@@ -1,11 +1,14 @@
 <script setup lang="ts">
-// Before/After display component. Two modes:
+// Before/After display component. Three modes:
 //   - slider:       img-comparison-slider handle (requires `before` + `after`).
 //                   Custom element is client-only; wrap in <ClientOnly>.
 //   - three-panel:  grid of Before / During / After NuxtImg.
+//   - static:       single clean card showing only the `after` image. Use when
+//                   before/after pairs aren't strong enough yet. Flip back to
+//                   slider/three-panel via config.showBeforeAfterSliders.
 
 interface Props {
-  mode: 'slider' | 'three-panel'
+  mode: 'slider' | 'three-panel' | 'static'
   label: string
   caption?: string
   before?: string
@@ -54,6 +57,19 @@ const props = defineProps<Props>()
           </div>
         </template>
       </ClientOnly>
+    </div>
+
+    <!-- Static mode: single clean after-photo card, no slider handle -->
+    <div
+      v-else-if="mode === 'static'"
+      class="relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-brand-surface aspect-[4/3]"
+    >
+      <NuxtImg
+        :src="after"
+        :alt="label"
+        loading="lazy"
+        class="w-full h-full object-cover"
+      />
     </div>
 
     <!-- Three-panel mode -->

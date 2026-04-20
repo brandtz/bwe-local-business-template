@@ -85,7 +85,7 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: { lang: 'en' },
       link: [
-        { rel: 'icon', type: 'image/png', href: '/brand/logo.png' },
+        { rel: 'icon', type: 'image/jpeg', href: '/brand/logo.jpg' },
       ],
     },
   },

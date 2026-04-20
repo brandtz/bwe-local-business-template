@@ -38,6 +38,14 @@ export default defineNuxtConfig({
     '@vee-validate/nuxt',
   ],
 
+  // Components in subdirectories (layout/, sections/, ui/) are auto-registered
+  // under their bare names (e.g. <SectionHero>, <AppButton>) instead of the
+  // default path-prefixed names (<SectionsSectionHero>, <UiAppButton>).
+  // Without this, pages render as unknown elements and only slot text shows.
+  components: [
+    { path: '~/components', pathPrefix: false },
+  ],
+
   alias: {
     '~client': CLIENT_DIR,
   },

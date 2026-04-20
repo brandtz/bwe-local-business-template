@@ -4,14 +4,12 @@
 
 [build]
   command = "pnpm install --no-frozen-lockfile && pnpm run build"
-  publish = ".output/public"
+  publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20"
   PNPM_VERSION = "9.12.2"
   NPM_FLAGS = "--version"
 
-# Nitro Netlify preset wires functions automatically from .output/server
-[functions]
-  directory = ".output/server"
-  node_bundler = "esbuild"
+# Nitro netlify preset outputs server functions to .netlify/functions-internal/
+# which Netlify auto-discovers — no [functions] block needed.

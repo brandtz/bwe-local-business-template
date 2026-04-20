@@ -1,0 +1,9 @@
+# BWE Local Business Website Template — CODEOWNERS
+# Matthew (@brandtz) owns everything by default.
+# Client config directories are editable by admins only; shared app code requires review.
+
+* @brandtz
+
+/docs/INTAKE_PACKAGE.md @brandtz
+/clients/* @brandtz
+/sanity/schemas/* @brandtz

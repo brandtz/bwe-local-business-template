@@ -85,6 +85,9 @@ export const siteConfig: ClientSiteConfig = {
   // Flip to true once we have strong before/after pairs from Ryan.
   showBeforeAfterSliders: false,
 
+  // Flip to true once we have strong before/after pairs from Ryan.
+  showBeforeAfterSliders: false,
+
   socials: {
     // TODO: confirm with Ryan — using Google Business Profile as placeholder
     google: '',

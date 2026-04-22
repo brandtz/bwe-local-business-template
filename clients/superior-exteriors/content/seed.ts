@@ -290,7 +290,7 @@ export const services: Service[] = [
     icon: 'shield',
     featured: false,
     navOrder: 5,
-    calComEventTypeSlug: 'gutter-guard-install',
+    calComEventTypeSlug: 'gutter-cleaning',
     subScope: ['On-site product selection', 'Installation', 'Warranty documentation'],
     gallery: [
       {

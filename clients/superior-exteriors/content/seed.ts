@@ -331,7 +331,7 @@ export const reviews: Review[] = [
     location: 'Springfield, OR',
     rating: 5,
     body:
-      "Ryan's crew replaced our roof last fall. Quote was detailed, crew was on time every day, and they cleaned up so well I couldn't tell they'd been there. Highly recommend.",
+      "generic review feedback #1",
     serviceSlug: 'roofing',
     featured: true,
     date: '2025-11-14',
@@ -342,7 +342,7 @@ export const reviews: Review[] = [
     location: 'Eugene, OR',
     rating: 5,
     body:
-      "We had three bids for gutter guards. Superior was the only one who didn't try to upsell us on stuff we didn't need. Honest, fast, and the install looks great.",
+      "generic feedback review #2",
     serviceSlug: 'gutters',
     featured: true,
     date: '2026-02-03',
@@ -353,7 +353,7 @@ export const reviews: Review[] = [
     location: 'Springfield, OR',
     rating: 5,
     body:
-      "Pressure washed our driveway and back deck. Night and day difference. Will have them back for the house siding next spring.",
+      "generic review feedback #3",
     serviceSlug: 'pressure-washing',
     featured: true,
     date: '2026-03-22',

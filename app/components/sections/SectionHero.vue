@@ -27,8 +27,17 @@ const heightClass = computed(() =>
     class="bg-brand-dark text-white relative overflow-hidden"
     :class="heightClass"
   >
+    <!-- Subtle architectural decoration -->
+    <div class="absolute top-0 right-0 -translate-y-12 translate-x-1/3 opacity-30 pointer-events-none md:opacity-50">
+      <div class="w-[600px] h-[600px] rounded-full bg-brand-teal/10 blur-3xl"></div>
+    </div>
+    <div class="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 opacity-20 pointer-events-none">
+      <div class="w-[400px] h-[400px] rounded-full bg-brand-slate/10 blur-3xl"></div>
+    </div>
+    <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none pb-40"></div>
+
     <div
-      class="max-w-container mx-auto px-6 md:px-10 py-20 md:py-24 flex flex-col justify-center items-center md:items-start text-center md:text-left"
+      class="relative z-10 max-w-container mx-auto px-6 md:px-10 py-20 md:py-24 flex flex-col justify-center items-center md:items-start text-center md:text-left"
       :class="variant === 'full' ? 'md:py-28' : ''"
     >
       <NuxtImg

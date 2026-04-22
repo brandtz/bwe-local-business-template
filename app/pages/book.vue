@@ -78,19 +78,21 @@ useSeoMeta({
             </label>
           </div>
 
-          <div class="bg-white rounded-xl overflow-hidden border border-brand-dark/5 shadow-sm aspect-[4/5] md:aspect-[16/11]">
+          <div class="bg-white rounded-xl overflow-hidden border border-brand-dark/5 shadow-sm">
             <ClientOnly>
               <iframe
                 v-if="iframeSrc"
                 :src="iframeSrc"
                 title="Cal.com booking"
-                class="w-full h-full"
+                class="w-full"
+                style="height: 700px; min-height: 700px;"
                 frameborder="0"
                 loading="lazy"
               />
               <div
                 v-else
-                class="w-full h-full grid place-items-center text-center p-6 text-brand-dark/60"
+                class="w-full grid place-items-center text-center p-6 text-brand-dark/60"
+                style="height: 700px;"
               >
                 Booking calendar will appear here once Cal.com is configured.<br />
                 In the meantime, call
@@ -99,7 +101,7 @@ useSeoMeta({
                 <NuxtLink to="/contact" class="text-brand-teal-dark underline">send us a message</NuxtLink>.
               </div>
               <template #fallback>
-                <div class="w-full h-full grid place-items-center text-brand-dark/50">
+                <div class="w-full grid place-items-center text-brand-dark/50" style="height: 700px;">
                   Loading calendar...
                 </div>
               </template>
